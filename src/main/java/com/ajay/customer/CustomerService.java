@@ -1,5 +1,6 @@
 package com.ajay.customer;
 
+import com.ajay.exception.ResourceNotFound;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,6 @@ public class CustomerService {
 
     public Customer getCustomers(Integer id) {
         return customerDao.selectCustomersById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Customer with id [%s] not found".formatted(id)));
+                .orElseThrow(() -> new ResourceNotFound("Customer with id [%s] not found".formatted(id)));
     }
 }
