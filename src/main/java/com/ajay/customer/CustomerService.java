@@ -1,6 +1,7 @@
 package com.ajay.customer;
 
 import com.ajay.exception.ResourceNotFound;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ public class CustomerService {
 
     private final CustomerDao customerDao;
 
-    public CustomerService(CustomerDao customerDao) {
+    public CustomerService(@Qualifier("jpa") CustomerDao customerDao) {
         this.customerDao = customerDao;
     }
 
